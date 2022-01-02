@@ -1,0 +1,102 @@
+<div style="height:100%">
+  <form [formGroup]="employeeRegistration" style="height:100%" (ngSubmit)="onSubmit()">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dvHeight">
+      <div class="row dvHeight">
+        <div class="col-lg-7 col-md-6 col-sm-4 hidden-xs dvHeight">
+          <div class=" dvHeight">
+            <div class="dvChild" style="padding:10%;height:100%">
+              <img src="assets/images/OrganizationImage.jpg" style="height:100%;width:100%" />
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-8 col-xs-12">
+          <div class="row">
+            <div class="dv-content">
+              <div class="dv-child">
+                <div class="row">
+                  <div class="dvTitle">
+                    <h2 class="title">EMPLOYEE REGISTRATION</h2>
+                  </div>
+                </div>
+                <div class="row" style="text-align: center;">
+                  <div class="errorMessage">{{showMessage}}</div>
+                </div>
+                <div class="row dvmarginBottom">
+                  <mat-form-field hideRequiredMarker>
+                    <input matInput type="text" (keypress)="numericOnly($event)"  maxlength="10" placeholder="Employee No"
+                      formControlName="employeeNo" id="name">
+                    <mat-error
+                      *ngIf="hasError('employeeNo', 'required') && (employeeRegistration.get('employeeNo').dirty || employeeRegistration.get('employeeNo').touched || submitted)">
+                      Employee No. is required</mat-error>
+                    <mat-error
+                      *ngIf="hasError('employeeNo', 'maxlength') &&  (employeeRegistration.get('employeeNo').dirty || employeeRegistration.get('employeeNo').touched || submitted)">
+                       Maximum 10 digits is allowed</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="row dvmarginBottom">
+                  <mat-form-field hideRequiredMarker>
+                    <input matInput type="text" maxlength="100" placeholder="Employee Name" formControlName="employeeName" id="name">
+                    <mat-error
+                      *ngIf="hasError('employeeName', 'required') && (employeeRegistration.get('employeeName').dirty || employeeRegistration.get('employeeName').touched || submitted)">
+                      Employee Name is required</mat-error>
+                    <mat-error
+                      *ngIf="hasError('employeeName', 'maxlength') &&  (employeeRegistration.get('employeeName').dirty || employeeRegistration.get('employeeName').touched || submitted)">
+                     Maximum 100 characters are allowed</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="row dvmarginBottom">
+                  <mat-form-field hideRequiredMarker>
+                    <input matInput [matDatepicker]="picker" placeholder="Date Of Joining" #dateOfJoining 
+                      formControlName="dateOfJoining" id="dateOfJoining" readonly (click)="picker.open()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error
+                      *ngIf="hasError('dateOfJoining', 'required') && (employeeRegistration.get('dateOfJoining').dirty || employeeRegistration.get('dateOfJoining').touched || submitted)">
+                      Date of Joining is required</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="row dvmarginBottom">
+                  <mat-form-field hideRequiredMarker>
+                    <mat-label>Department</mat-label>
+                    <mat-select formControlName="department">
+                      <mat-option *ngFor="let dept of departments" [value]="dept.code">
+                        {{dept.name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="employeeRegistration.get('department').hasError('required') || submitted">
+                      Department selection is required
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="row dvmarginBottom">
+                  <mat-form-field hideRequiredMarker>
+                    <input matInput type="text" (keypress)="numericOnly($event)" maxlength="10" placeholder="Salary"
+                      formControlName="salary" id="salary">
+                    <mat-error 
+                      *ngIf="hasError('salary', 'required') && (employeeRegistration.get('salary').dirty || employeeRegistration.get('salary').touched || submitted)">
+                      Salary is required</mat-error>
+                    <mat-error
+                      *ngIf="hasError('salary', 'maxlength') &&  (employeeRegistration.get('salary').dirty || employeeRegistration.get('salary').touched || submitted)">
+                      Maximum 10 digits is allowed</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="row">
+                  <div class="dvButtons">
+                    <button type="submit" [disabled]=isDisable class="btn btn-primary">Submit
+                    </button>
+                    <button type="button" [disabled]=isDisable style="margin-left:1em;margin-right:1em" class="btn"
+                      (click)="onClkReset()">Clear
+                    </button>
+                    <div #dvSpinner id="dvSpinner" style="display:none">
+                      <span class="fa fa-spinner fa-spin fa-2x" style="color: #fff;"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

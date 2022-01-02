@@ -1,0 +1,94 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.bg-organization
+{
+    min-height: 100vh;
+    width: 100%;
+    background: url('/assets/images/organizationImg.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position:top;
+}
+.dvHeight
+{
+    height:100%;
+}
+.dv-content
+{
+    margin:2em;
+    background: #334760;
+    width:80%
+}
+.dv-child
+{
+    padding:2em 3em;
+}
+.dvTitle
+{
+    width: 100%;
+    padding: 1em 5em;
+}
+.title
+{
+    text-align:center;
+    color:#fff;
+    border-bottom: 2px solid #fff;
+ }
+  .mat-form-field-underline {
+    background-color:#fff !important;
+  }
+  .mat-form-field-underline.mat-disabled {
+    background-color: transparent !important;
+  }
+  .mat-form-field.mat-form-field-invalid .mat-form-field-label
+  {
+      color:white;
+  }
+  .mat-form-field-appearance-legacy .mat-form-field-label,
+  .mat-form-field.mat-focused .mat-form-field-label,
+  .mat-icon-button,
+  .mat-select-value,
+  .mat-select-arrow,
+  .mat-form-field-should-float
+  {
+      color:#fff;
+  }
+  .mat-form-field {
+      width:100%
+  }
+  .mat-datepicker-input
+  {
+      color:sandybrown !important
+  }
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .dvButtons
+  {
+    margin-left: 25%;
+    right: 25%;
+    padding-top:4em;
+    display:flex;
+  }
+  .dvmarginBottom
+  {
+    margin-bottom: 0.5em;
+  }
+  .errorMessage {
+    color: #ff0000;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 0.5em;
+}
+.mat-select-arrow{
+  color:#fff !important;
+}
